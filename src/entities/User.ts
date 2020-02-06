@@ -31,7 +31,7 @@ class User extends BaseEntity {
     @Column({ type: "double precision", default: 0 }) lastLat: number
     @Column({ type: "double precision", default: 0 }) lastOrientation: number
 
-    @ManyToOne(type => Chat, chat => chat.participants) chat: Chat;
+    @ManyToOne(type => Chat, chat => chat.participants) chat: Chat
     @OneToMany(type => Message, message => message.user) messages: Message[]
     @OneToMany(type => Ride, ride => ride.passenger) rideAsPassenger: Ride[]
     @OneToMany(type => Ride, ride => ride.driver) rideAsDriver: Ride[]

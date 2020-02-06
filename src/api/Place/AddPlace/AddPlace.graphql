@@ -9,6 +9,6 @@ type Mutation {
     lat: Float!
     lng: Float!
     address: String!
-    isFave: Boolean!
+    isFav: Boolean!
   ): AddPlaceResponse
 }

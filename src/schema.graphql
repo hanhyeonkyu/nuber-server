@@ -21,7 +21,9 @@ type AddPlaceResponse {
 }
 
 type Mutation {
-  AddPlace(name: String!, lat: Float!, lng: Float!, address: String!, isFave: Boolean!): AddPlaceResponse
+  AddPlace(name: String!, lat: Float!, lng: Float!, address: String!, isFav: Boolean!): AddPlaceResponse
+  DeletePlace(placeId: Int!): DeletePlaceResponse!
+  EditPlace(placeId: Int!, name: String, isFav: Boolean): EditPlaceResponse!
   CompleteEmailVerification(key: String!): CompleteEmailVerificationResponse!
   CompletePhoneVerification(phoneNumber: String!, key: String!): CompletePhoneVerificationResponse!
   EmailSignIn(email: String!, password: String!): EmailSignInResponse!
@@ -32,6 +34,28 @@ type Mutation {
   StartPhoneVerification(phoneNumber: String!): StartPhoneVerificationResponse!
   ToggleDrivingMode: ToggleDrivingModeResponse
   UpdateMyProfile(firstName: String, lastName: String, profilePhoto: String, password: String, age: Int, email: String): UpdateMyProfileResponse!
+}
+
+type DeletePlaceResponse {
+  ok: Boolean!
+  error: String
+}
+
+type EditPlaceResponse {
+  ok: Boolean!
+  error: String
+}
+
+type GetMyPlacesResponse {
+  ok: Boolean!
+  error: String
+  places: [Place]
+}
+
+type Query {
+  GetMyPlaces: GetMyPlacesResponse!
+  GetMyProfile: GetMyProfileResponse!
+  user: User
 }
 
 type Place {
@@ -99,11 +123,6 @@ type GetMyProfileResponse {
   user: User
 }
 
-type Query {
-  GetMyProfile: GetMyProfileResponse!
-  user: User
-}
-
 type ReportMovementResponse {
   ok: Boolean!
   error: String
@@ -130,7 +149,7 @@ type User {
   isRiding: Boolean!
   isTaken: Boolean!
   lastLng: Float
-  LastLat: Float
+  lastLat: Float
   lastOrientation: Float
   fbId: String
   chat: Chat
