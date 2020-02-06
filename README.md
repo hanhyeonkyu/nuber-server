@@ -29,7 +29,7 @@ Nomad Coder - uber clone coding - graphql, typescript, nodejs
 - [x] Update my Profile
 - [x] Toggle Driving Mode
 - [x] Report Location / Orientation
-- [ ] Add Place
+- [x] Add Place
 - [ ] Edit Place
 - [ ] Delete Place
 - [ ] See Nearby Drivers
