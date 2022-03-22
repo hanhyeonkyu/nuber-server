@@ -10,7 +10,7 @@
     "dev": "cd src && nodemon --exec ts-node index.ts -e ts,graphql",
     "pretypes": "gql-merge --out-file ./src/schema.graphql ./src/api/**/*.graphql",
     "types": "graphql-to-typescript ./src/schema.graphql ./src/types/graphql.d.ts",
-    "build": "tsc"
+    "build": "rm -rf build && tsc"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
@@ -30,7 +30,7 @@
     "typescript": "^3.7.5"
   },
   "dependencies": {
-    "bcrypt": "^3.0.7",
+    "bcrypt": "^5.0.0",
     "class-validator": "^0.13.2",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
